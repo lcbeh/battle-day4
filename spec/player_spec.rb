@@ -12,12 +12,6 @@ describe Player do
     expect(player1.name).to eq "Kyaw"
   end
 
-  describe "#attack" do
-    it "damages the player" do
-      expect(player2).to receive(:receive_damage)
-      player1.attack(player2)
-    end
-  end
 
   describe "receive_damage" do
     it 'reduces the player hit points' do
