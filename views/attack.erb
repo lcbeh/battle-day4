@@ -1,2 +1,2 @@
-<h2><%= @game.player1.name %> attacked <%= @game.player2.name %></h2>
+<h2><%= @game.opponent_of(@game.current_turn).name %> attacked <%= @game.current_turn.name %></h2>
 <a href="/play">OK</a>
