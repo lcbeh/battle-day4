@@ -16,4 +16,13 @@ describe Game do
     game.attack(player_2)
   end
 
+  it "knows the current player", :focus do
+    expect(game.current_turn).to eq player_1
+  end
+
+  it "switch the player turn", :focus do
+    game.switch_turns
+    expect(game.current_turn).to eq player_2
+  end
+
 end

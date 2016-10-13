@@ -15,18 +15,16 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @player_1 = $game.player1
-    @player_2 = $game.player2
+    @game = $game
     erb(:play)
   end
 
   get '/attack' do
-    @player_1 = $game.player1
-    @player_2 = $game.player2
-    $game.attack(@player_2)
+    @game = $game
+    $game.attack(@game.player2)
+    $game.switch_turns
     erb :attack
   end
-
 
   run! if app_file == $0
 end
