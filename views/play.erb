@@ -1,12 +1,13 @@
-
+<body>
 <h1><%= @game.player1.name%> vs. <%= @game.player2.name%></h1>
 
-<p><%= @game.player1.name%>'s hit points: <%= @game.player1.hitpoints%> </p>
+<p1><%= @game.player1.name%>'s hit points: <%= @game.player1.hitpoints%> </p1>
 
-<p><%= @game.player2.name%>'s hit points: <%= @game.player2.hitpoints%> </p>
+<p2><%= @game.player2.name%>'s hit points: <%= @game.player2.hitpoints%> </p2>
 
 <form action="/attack" method = "post">
   <input type="submit" value="Attack">
 </form>
 
 <h3><%= @game.current_turn.name%>'s turn!</h3>
+</body>

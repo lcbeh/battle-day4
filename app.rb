@@ -24,7 +24,7 @@ class Battle < Sinatra::Base
 
   post '/attack' do
     @game.attack(@game.opponent_of(@game.current_turn))
-    if @game.opponent_of(@game.current_turn).hitpoints == 0
+    if @game.opponent_of(@game.current_turn).hitpoints <= 0 
       redirect '/lose'
     else
       redirect '/attack'

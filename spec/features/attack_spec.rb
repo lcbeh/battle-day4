@@ -1,4 +1,5 @@
 
+
 feature 'Attack' do
   scenario 'Attack opponent and get confirmation' do
     sign_in_and_play
@@ -19,6 +20,9 @@ end
 
 
 feature 'Reduce Hit Points' do
+  before do
+    allow(Kernel).to receive(:rand).and_return(10)
+  end
   scenario 'Player attacked has HP reduced' do
     sign_in_and_play
     click_button('Attack')
@@ -27,6 +31,9 @@ feature 'Reduce Hit Points' do
   end
 
   feature 'Reduce Hit Points' do
+    before do
+      allow(Kernel).to receive(:rand).and_return(10)
+    end
     scenario 'Player attacked has HP reduced' do
       sign_in_and_play
       2.times {attack_and_confirm}
