@@ -1,0 +1,5 @@
+<h2><%= @game.opponent_of(@game.current_turn).name %> loses the game!</h2>
+
+<form action="/switch-turns" method="post">
+  <input type="submit" value="RESET">
+</form>

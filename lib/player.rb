@@ -11,7 +11,7 @@ def initialize(name, hitpoints = DEFAULT_HITPOINTS)
 end
 
 def receive_damage
-  @hitpoints -= 10
+  @hitpoints -= Kernel.rand(20)
 end
 
 end
