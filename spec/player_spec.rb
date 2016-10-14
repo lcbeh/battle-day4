@@ -1,8 +1,7 @@
-require 'player'
 
 describe Player do
   subject(:player1) { described_class.new("Kyaw") }
-  subject(:player2) { described_class.new("Li") }
+  subject(:player2) { described_class.new("Kath") }
 
   it "initialize with default hitpoints" do
     expect(player1.hitpoints).to eq Player::DEFAULT_HITPOINTS

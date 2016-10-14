@@ -1,10 +1,8 @@
-require 'game'
-require 'player'
 
 describe Game do
 
   player_1 = Player.new("Kyaw")
-  player_2 = Player.new("Li")
+  player_2 = Player.new("Kath")
   subject(:game) { described_class.new(player_1, player_2) }
 
   it "accepts two players" do
