@@ -9,20 +9,21 @@ class Battle < Sinatra::Base
   erb(:index)
   end
 
+  before do
+    @game = Game.instance
+  end
 
   post '/names' do
-    @@game = Game.new(Player.new(params[:player1]), Player.new(params[:player2]))
+    @game = Game.create(Player.new(params[:player1]), Player.new(params[:player2]))
     redirect '/play'
   end
 
   get '/play' do
-    @game = @@game
     erb(:play)
   end
 
   post '/attack' do
-    @game = @@game
-    @@game.attack(@game.opponent_of(@game.current_turn))
+    @game.attack(@game.opponent_of(@game.current_turn))
     if @game.opponent_of(@game.current_turn).hitpoints == 0
       redirect '/lose'
     else
@@ -31,17 +32,15 @@ class Battle < Sinatra::Base
   end
 
   get '/attack' do
-    @game = @@game
     erb :attack
   end
 
   get '/lose' do
-    @game = @@game
     erb :lose
   end
 
   post '/switch-turns' do
-    @@game.switch_turns
+    @game.switch_turns
     redirect '/play'
   end
 
