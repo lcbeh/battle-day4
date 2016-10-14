@@ -5,13 +5,10 @@ require './lib/game'
 class Battle < Sinatra::Base
   enable :sessions
 
-  before do
-    @game = @@game
-  end
-
   get '/' do
   erb(:index)
   end
+
 
   post '/names' do
     @@game = Game.new(Player.new(params[:player1]), Player.new(params[:player2]))
@@ -19,12 +16,12 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    # @game = @@game
+    @game = @@game
     erb(:play)
   end
 
   post '/attack' do
-    # @game = @@game
+    @game = @@game
     @@game.attack(@game.opponent_of(@game.current_turn))
     if @game.opponent_of(@game.current_turn).hitpoints == 0
       redirect '/lose'
@@ -34,12 +31,12 @@ class Battle < Sinatra::Base
   end
 
   get '/attack' do
-    # @game = @@game
+    @game = @@game
     erb :attack
   end
 
   get '/lose' do
-    # @game = @@game
+    @game = @@game
     erb :lose
   end
 
